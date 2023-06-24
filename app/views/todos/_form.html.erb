@@ -5,6 +5,7 @@
 
       <ul>
         <% todo.errors.each do |error| %>
+        I18n.t(error.key)
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -12,7 +13,7 @@
   <% end %>
 
   <div>
-    <%= form.label :task, style: "display: block" %>
+    <%= form.label :task %>
     <%= form.text_field :task %>
   </div>
 
@@ -23,7 +24,12 @@
 
   <div>
     <%= form.label :priority, style: "display: block" %>
-    <%= form.number_field :priority %>
+    <%= form.number_field :priority, min: 1, max: 10 %>
+  </div>
+
+  <div>
+    <%= form.label :username, style: "display: block" %>
+    <%= form.text_field :username %>
   </div>
 
   <div>
